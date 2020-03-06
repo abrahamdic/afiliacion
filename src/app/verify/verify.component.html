@@ -1,0 +1,209 @@
+<div nz-row nzType="flex" nzJustify="center"  nzAlign="middle" >
+    <div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="12">
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <strong>Validación de tu RUC y Dirección</strong>
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <nz-radio-group [(ngModel)]="personaTipoValue">
+                    <label nz-radio nzValue="natural">Persona Natural</label>
+                    <label nz-radio nzValue="juridica">Persona Jurídica</label>
+                </nz-radio-group>
+            </div>
+            <div nz-col nzSpan="4">
+                <input nz-input placeholder="Ingrese RUC" [(ngModel)]="ruc" />
+            </div>
+            <div nz-col nzSpan="4">
+                <input nz-input placeholder="Ingrese DNI del titular del comercio" [(ngModel)]="dni" />
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <strong>Información del agente registrada en Sunat.</strong>
+            </div>
+            <div nz-col nzSpan="10">
+                <button nz-button (click)="registrarRuc()" nzType="primary">Registrar RUC<i nz-icon nzType="right"></i></button>
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center" *ngIf="showInfoRuc">
+            <div nz-col nzSpan="24">
+                <table border="1px">
+                    <tr>
+                        <td>RUC</td>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td>Nombre o Razón Social</td>
+                        <td colspan="5"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado del Contribuyente</td>
+                        <td>Activo</td>
+                        <td>Condición de Domicilio</td>
+                        <td colspan="3">Habilitado</td>
+                    </tr>
+                    <tr>
+                        <td width="100px">Tipo de Vía</td>
+                        <td width="100px">sdsada</td>
+                        <td width="100px">Nombre de Vía</td>
+                        <td width="100px">nombre de via</td>
+                        <td width="100px">Número</td>
+                        <td width="100px">5645</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="24">
+                <label nz-checkbox [(ngModel)]="checked">La dirección mostrada corresponde a la dirección actual de mi LOCAL COMERCIAL</label> 
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="24">
+                <nz-card nzTitle="Dirección del Comercio">
+                    <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="5">
+                            <nz-select [(ngModel)]="tipoVia" nzAllowClear nzPlaceHolder="Tipon de Vía" style="width: 130px;">
+                                <nz-option nzValue='jiron' nzLabel="Jirón"></nz-option>
+                                <nz-option nzValue='calle' nzLabel="Calle"></nz-option>
+                                <nz-option nzValue='avenida' nzLabel="Avenida"></nz-option>
+                            </nz-select>
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <input nz-input placeholder="Nombre de Vía" [(ngModel)]="nombre_via" />
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <input nz-input placeholder="Número" [(ngModel)]="numero" />
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <input nz-input placeholder="Interior" [(ngModel)]="interior" />
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <input nz-input placeholder="Lote" [(ngModel)]="lote" />
+                        </div>
+                    </div>
+                    <p></p>
+                    <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="Nombre de Vía" [(ngModel)]="manzana" />
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="Número" [(ngModel)]="kilometro" />
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <nz-select [(ngModel)]="departamento" nzAllowClear nzPlaceHolder="Departamento" style="width: 130px;">
+                                <nz-option nzValue='departamento1' nzLabel="Lima"></nz-option>
+                                <nz-option nzValue="departamento2" nzLabel="Amazonas"></nz-option>
+                                <nz-option nzValue="departamento2" nzLabel="Ancash"></nz-option>
+                            </nz-select>
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <nz-select [(ngModel)]="provincia" nzAllowClear nzPlaceHolder="Provincia" style="width: 130px;">
+                                <nz-option nzValue='provincia1' nzLabel="Provincia 1"></nz-option>
+                                <nz-option nzValue="provincia2" nzLabel="Provincia 2"></nz-option>
+                            </nz-select>
+                        </div>
+                        <div nz-col nzSpan="4">
+                            <nz-select [(ngModel)]="distrito" nzAllowClear nzPlaceHolder="Distrito" style="width: 130px;">
+                                <nz-option nzValue='distrito1' nzLabel="Distrito 1"></nz-option>
+                                <nz-option nzValue="distrito2" nzLabel="Distrito 2"></nz-option>
+                            </nz-select>
+                        </div>
+                    </div>
+                </nz-card>
+            </div>           
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="24">
+                <nz-card>
+                    <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="5">
+                            <label>Razón Social</label>
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="indicar" [(ngModel)]="razon_social" />
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <label>Denominación comercial</label>
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="indicar" [(ngModel)]="denominacion" />
+                        </div>
+                    </div>
+                    <p></p>
+                    <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="5">
+                            <label>CIIU</label>
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="indicar" [(ngModel)]="ciiu" />
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <label>Años de Exp. en Mcdo.</label>
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="indicar" [(ngModel)]="anios_mercado" />
+                        </div>
+                    </div>
+                    <p></p>
+                    <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="5">
+                            <label>Regimen Tributario</label>
+                        </div>
+                        <div nz-col nzSpan="19">
+                            <nz-radio-group [(ngModel)]="regimenTributario">
+                                <label nz-radio nzValue="general">Reg. General</label>
+                                <label nz-radio nzValue="unico">Reg. Unico Simp.</label>
+                                <label nz-radio nzValue="especial">Reg. Especial de Renta</label>
+                                <label nz-radio nzValue="mype">Régimen MYPE Trib.</label>
+                            </nz-radio-group>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="5">
+                            <label>Cargos</label>
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="Cargos" [(ngModel)]="cargos" />
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <label>Poderes Inscritos</label>
+                        </div>
+                        <div nz-col nzSpan="5">
+                            <input nz-input placeholder="Poderes" [(ngModel)]="poderes" />
+                        </div>
+                    </div>
+                </nz-card>
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="24">
+                <nz-card>
+                    <div nz-col nzSpan="8">
+                        <label>Ejecutivo Comercial (Afiliador)</label>
+                        <input nz-input placeholder="DNI del ejecutivo comercial" [(ngModel)]="dni_ejecutivo" />
+                    </div>
+                </nz-card>
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="right">
+            <div nz-col nzSpan="8">
+                <button nz-button (click)="guardar()" nzType="primary"><i nz-icon nzType="right"></i>Guardar Información</button>
+            </div>
+            <div nz-col nzSpan="8">
+                <button nz-button (click)="enviar()" nzType="primary"><i nz-icon nzType="right"></i>Enviar Información</button>
+            </div>
+        </div>
+        
+    </div>
+</div>

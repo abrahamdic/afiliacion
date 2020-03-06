@@ -1,0 +1,110 @@
+<div nz-row nzType="flex" nzJustify="center">
+    <div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="12">
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                ¡Se un agente multibanco Kasnet!
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <input nz-input placeholder="Nombres" [(ngModel)]="nombre" />
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <input nz-input placeholder="Apellido Paterno" [(ngModel)]="ape_paterno" />
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <input nz-input placeholder="Apellido Materno" [(ngModel)]="ape_materno" />
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <div nz-row nzType="flex" nzJustify="left">
+                    <div nz-col nzSpan="10">
+                        <input nz-input placeholder="Correo Electrónico" [(ngModel)]="email" />
+                    </div>
+                    <div nz-col nnzSpan="3">
+                        @
+                    </div>
+                    <div *ngIf="email_custom; else elseBlock">
+                        <div nz-row nzType="flex" nzJustify="center">
+                        <div nz-col nzSpan="10">
+                            <nz-select style="width: 150px !important;" (ngModelChange)="selectChange($event)" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="-- SELECCIONA --">
+                                <nz-option nzValue='gmail.com' nzLabel="gmail.com"></nz-option>
+                                <nz-option nzValue="hotmail.com" nzLabel="hotmail.com"></nz-option>
+                                <nz-option nzValue="outlook.com" nzLabel="outlook.com"></nz-option>
+                                <nz-option nzValue="yahoo.com" nzLabel="yahoo.com"></nz-option>
+                                <nz-option nzValue="otros" nzLabel="Otros"></nz-option>
+                            </nz-select>
+                        </div>
+                        </div>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div nz-col nzSpan="10">
+                            <input nz-input placeholder="ingresa tu dominio" [(ngModel)]="email_extension" />
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <input nz-input placeholder="Teléfono" [(ngModel)]="telefono" />
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <nz-select [(ngModel)]="pregunta1" nzAllowClear nzPlaceHolder="¿Cuenta con RUC?">
+                    <nz-option nzValue='si' nzLabel="Sí"></nz-option>
+                    <nz-option nzValue="no" nzLabel="No"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <nz-select [(ngModel)]="departamento" nzAllowClear nzPlaceHolder="Departamento">
+                    <nz-option nzValue='departamento1' nzLabel="Lima"></nz-option>
+                    <nz-option nzValue="departamento2" nzLabel="Amazonas"></nz-option>
+                    <nz-option nzValue="departamento2" nzLabel="Ancash"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <nz-select [(ngModel)]="provincia" nzAllowClear nzPlaceHolder="Provincia">
+                    <nz-option nzValue='provincia1' nzLabel="Provincia 1"></nz-option>
+                    <nz-option nzValue="provincia2" nzLabel="Provincia 2"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <nz-select [(ngModel)]="distrito" nzAllowClear nzPlaceHolder="Distrito">
+                    <nz-option nzValue='distrito1' nzLabel="Distrito 1"></nz-option>
+                    <nz-option nzValue="distrito2" nzLabel="Distrito 2"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <div nz-row nzType="flex" nzJustify="center">
+                    <div nz-col nzSpan="12">
+                        CAPTCHA
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <input nz-input [(ngModel)]="captcha" placeholder="Ingrese Captcha"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <button nz-button (click)="submitData()" nzType="primary">Registrarse<i nz-icon nzType="right"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+

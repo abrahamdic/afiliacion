@@ -1,0 +1,38 @@
+<div nz-row nzType="flex" nzJustify="center"  nzAlign="middle" >
+    <div nz-col nzXs="20" nzSm="16" nzMd="12" nzLg="8" nzXl="12">
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                ¡Ingresa tu solicitud!
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <div *ngIf="login_sucessfull">
+                    <nz-alert nzType="success" nzMessage="Acceso correcto. Redireccionando... espere por favor ... 3 2 1"></nz-alert>
+                </div>
+                <div *ngIf="login_error">
+                    <nz-alert nzType="error" nzMessage="No ha ingresado los datos necesarios. Intenta nuevamente."></nz-alert>
+                </div>
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <input nz-input [(ngModel)]="usuario" placeholder="Usuario">
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <input nz-input [(ngModel)]="password" placeholder="Password" type="password">
+            </div>
+        </div>
+        <p></p>
+        <div nz-row nzType="flex" nzJustify="center">
+            <div nz-col nzSpan="10">
+                <button nz-button (click)="login()" nzType="primary"><i nz-icon nzType="right"></i>Ingresar</button>
+            </div>
+        </div>
+    </div>
+</div>
